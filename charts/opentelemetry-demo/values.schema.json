@@ -28,7 +28,9 @@
           "type": "string"
         }
       },
-      "required": ["create"]
+      "required": [
+        "create"
+      ]
     },
     "components": {
       "$ref": "#/definitions/Components"
@@ -100,6 +102,9 @@
         "product-catalog": {
           "$ref": "#/definitions/Component"
         },
+        "product-reviews": {
+          "$ref": "#/definitions/Component"
+        },
         "quote": {
           "$ref": "#/definitions/Component"
         },
@@ -110,6 +115,12 @@
           "$ref": "#/definitions/Component"
         },
         "kafka": {
+          "$ref": "#/definitions/Component"
+        },
+        "llm": {
+          "$ref": "#/definitions/Component"
+        },
+        "postgresql": {
           "$ref": "#/definitions/Component"
         },
         "valkey-cart": {
@@ -172,6 +183,12 @@
           "type": "array",
           "items": {}
         },
+        "additionalVolumeMounts": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
         "mountedConfigMaps": {
           "type": "array",
           "items": {
@@ -208,7 +225,7 @@
         "initContainers": {
           "type": "array"
         },
-        "sidecarContainers":{
+        "sidecarContainers": {
           "type": "array"
         },
         "additionalVolumes": {
@@ -717,10 +734,14 @@
       ],
       "oneOf": [
         {
-          "required": ["existingConfigMap"]
+          "required": [
+            "existingConfigMap"
+          ]
         },
         {
-          "required": ["data"]
+          "required": [
+            "data"
+          ]
         }
       ]
     },

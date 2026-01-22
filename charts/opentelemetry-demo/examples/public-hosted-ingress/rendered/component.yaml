@@ -5,13 +5,13 @@ kind: Service
 metadata:
   name: ad
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: ad
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: ad
     app.kubernetes.io/name: ad
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -30,13 +30,13 @@ kind: Service
 metadata:
   name: cart
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: cart
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: cart
     app.kubernetes.io/name: cart
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -55,13 +55,13 @@ kind: Service
 metadata:
   name: checkout
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: checkout
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: checkout
     app.kubernetes.io/name: checkout
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -80,13 +80,13 @@ kind: Service
 metadata:
   name: currency
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: currency
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: currency
     app.kubernetes.io/name: currency
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -105,13 +105,13 @@ kind: Service
 metadata:
   name: email
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: email
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: email
     app.kubernetes.io/name: email
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -130,21 +130,24 @@ kind: Service
 metadata:
   name: flagd
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: flagd
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: flagd
     app.kubernetes.io/name: flagd
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
   type: ClusterIP
   ports:
     - port: 8013
-      name: tcp-service
+      name: rpc
       targetPort: 8013
+    - port: 8016
+      name: ofrep
+      targetPort: 8016
     - port: 4000
       name: tcp-service-0
       targetPort: 4000
@@ -158,13 +161,13 @@ kind: Service
 metadata:
   name: frontend
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: frontend
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: frontend
     app.kubernetes.io/name: frontend
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -183,13 +186,13 @@ kind: Service
 metadata:
   name: frontend-proxy
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: frontend-proxy
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: frontend-proxy
     app.kubernetes.io/name: frontend-proxy
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -208,13 +211,13 @@ kind: Service
 metadata:
   name: image-provider
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: image-provider
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: image-provider
     app.kubernetes.io/name: image-provider
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -233,13 +236,13 @@ kind: Service
 metadata:
   name: kafka
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: kafka
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: kafka
     app.kubernetes.io/name: kafka
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -259,15 +262,40 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  name: llm
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.40.2
+    
+    opentelemetry.io/name: llm
+    
+    app.kubernetes.io/version: "2.2.0"
+    app.kubernetes.io/component: llm
+    app.kubernetes.io/name: llm
+    app.kubernetes.io/part-of: opentelemetry-demo
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8000
+      name: tcp-service
+      targetPort: 8000
+  selector:
+    
+    opentelemetry.io/name: llm
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
   name: load-generator
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: load-generator
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: load-generator
     app.kubernetes.io/name: load-generator
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -286,13 +314,13 @@ kind: Service
 metadata:
   name: payment
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: payment
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: payment
     app.kubernetes.io/name: payment
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -304,6 +332,31 @@ spec:
   selector:
     
     opentelemetry.io/name: payment
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgresql
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.40.2
+    
+    opentelemetry.io/name: postgresql
+    
+    app.kubernetes.io/version: "2.2.0"
+    app.kubernetes.io/component: postgresql
+    app.kubernetes.io/name: postgresql
+    app.kubernetes.io/part-of: opentelemetry-demo
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5432
+      name: tcp-service
+      targetPort: 5432
+  selector:
+    
+    opentelemetry.io/name: postgresql
 ---
 # Source: opentelemetry-demo/templates/component.yaml
 apiVersion: v1
@@ -311,13 +364,13 @@ kind: Service
 metadata:
   name: product-catalog
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: product-catalog
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: product-catalog
     app.kubernetes.io/name: product-catalog
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -334,15 +387,40 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
+  name: product-reviews
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.40.2
+    
+    opentelemetry.io/name: product-reviews
+    
+    app.kubernetes.io/version: "2.2.0"
+    app.kubernetes.io/component: product-reviews
+    app.kubernetes.io/name: product-reviews
+    app.kubernetes.io/part-of: opentelemetry-demo
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: ClusterIP
+  ports:
+    - port: 3551
+      name: tcp-service
+      targetPort: 3551
+  selector:
+    
+    opentelemetry.io/name: product-reviews
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
   name: quote
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: quote
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: quote
     app.kubernetes.io/name: quote
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -361,13 +439,13 @@ kind: Service
 metadata:
   name: recommendation
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: recommendation
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: recommendation
     app.kubernetes.io/name: recommendation
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -386,13 +464,13 @@ kind: Service
 metadata:
   name: shipping
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: shipping
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: shipping
     app.kubernetes.io/name: shipping
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -411,13 +489,13 @@ kind: Service
 metadata:
   name: valkey-cart
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: valkey-cart
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: valkey-cart
     app.kubernetes.io/name: valkey-cart
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -436,13 +514,13 @@ kind: Deployment
 metadata:
   name: accounting
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: accounting
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: accounting
     app.kubernetes.io/name: accounting
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -457,14 +535,17 @@ spec:
       labels:
         
         opentelemetry.io/name: accounting
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: accounting
         app.kubernetes.io/name: accounting
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: accounting
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-accounting'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-accounting'
           imagePullPolicy: IfNotPresent
           env:
             - name: OTEL_SERVICE_NAME
@@ -480,8 +561,10 @@ spec:
               value: kafka:9092
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://$(OTEL_COLLECTOR_NAME):4318
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
+            - name: DB_CONNECTION_STRING
+              value: Host=postgresql;Username=otelu;Password=otelp;Database=otel
+            - name: OTEL_DOTNET_AUTO_TRACES_ENTITYFRAMEWORKCORE_INSTRUMENTATION_ENABLED
+              value: "false"
           resources:
             limits:
               memory: 120Mi
@@ -501,13 +584,13 @@ kind: Deployment
 metadata:
   name: ad
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: ad
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: ad
     app.kubernetes.io/name: ad
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -522,14 +605,17 @@ spec:
       labels:
         
         opentelemetry.io/name: ad
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: ad
         app.kubernetes.io/name: ad
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: ad
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-ad'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-ad'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -555,8 +641,6 @@ spec:
               value: http://$(OTEL_COLLECTOR_NAME):4318
             - name: OTEL_LOGS_EXPORTER
               value: otlp
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
           resources:
             limits:
               memory: 300Mi
@@ -569,13 +653,13 @@ kind: Deployment
 metadata:
   name: cart
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: cart
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: cart
     app.kubernetes.io/name: cart
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -590,14 +674,17 @@ spec:
       labels:
         
         opentelemetry.io/name: cart
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: cart
         app.kubernetes.io/name: cart
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: cart
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-cart'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-cart'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -625,8 +712,6 @@ spec:
               value: "8013"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://$(OTEL_COLLECTOR_NAME):4317
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
           resources:
             limits:
               memory: 160Mi
@@ -647,13 +732,13 @@ kind: Deployment
 metadata:
   name: checkout
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: checkout
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: checkout
     app.kubernetes.io/name: checkout
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -668,14 +753,17 @@ spec:
       labels:
         
         opentelemetry.io/name: checkout
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: checkout
         app.kubernetes.io/name: checkout
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: checkout
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-checkout'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-checkout'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -704,7 +792,7 @@ spec:
             - name: PRODUCT_CATALOG_ADDR
               value: product-catalog:8080
             - name: SHIPPING_ADDR
-              value: shipping:8080
+              value: http://shipping:8080
             - name: KAFKA_ADDR
               value: kafka:9092
             - name: FLAGD_HOST
@@ -713,8 +801,8 @@ spec:
               value: "8013"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://$(OTEL_COLLECTOR_NAME):4317
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
+            - name: GOMEMLIMIT
+              value: 16MiB
           resources:
             limits:
               memory: 20Mi
@@ -734,13 +822,13 @@ kind: Deployment
 metadata:
   name: currency
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: currency
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: currency
     app.kubernetes.io/name: currency
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -755,14 +843,17 @@ spec:
       labels:
         
         opentelemetry.io/name: currency
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: currency
         app.kubernetes.io/name: currency
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: currency
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-currency'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-currency'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -783,9 +874,9 @@ spec:
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://$(OTEL_COLLECTOR_NAME):4317
             - name: VERSION
-              value: '2.0.1'
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
+              value: '2.2.0'
+            - name: IPV6_ENABLED
+              value: "false"
           resources:
             limits:
               memory: 20Mi
@@ -798,13 +889,13 @@ kind: Deployment
 metadata:
   name: email
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: email
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: email
     app.kubernetes.io/name: email
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -819,14 +910,17 @@ spec:
       labels:
         
         opentelemetry.io/name: email
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: email
         app.kubernetes.io/name: email
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: email
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-email'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-email'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -846,10 +940,12 @@ spec:
               value: "8080"
             - name: APP_ENV
               value: production
-            - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
-              value: http://$(OTEL_COLLECTOR_NAME):4318/v1/traces
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: http://$(OTEL_COLLECTOR_NAME):4318
+            - name: FLAGD_HOST
+              value: flagd
+            - name: FLAGD_PORT
+              value: "8013"
           resources:
             limits:
               memory: 100Mi
@@ -862,13 +958,13 @@ kind: Deployment
 metadata:
   name: flagd
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: flagd
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: flagd
     app.kubernetes.io/name: flagd
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -883,26 +979,33 @@ spec:
       labels:
         
         opentelemetry.io/name: flagd
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: flagd
         app.kubernetes.io/name: flagd
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: flagd
-          image: 'ghcr.io/open-feature/flagd:v0.11.1'
+          image: 'ghcr.io/open-feature/flagd:v0.12.9'
           imagePullPolicy: IfNotPresent
           command:
             - /flagd-build
             - start
             - --port
             - "8013"
+            - --ofrep-port
+            - "8016"
             - --uri
             - file:./etc/flagd/demo.flagd.json
           ports:
             
             - containerPort: 8013
-              name: service
+              name: rpc
+            - containerPort: 8016
+              name: ofrep
           env:
             - name: OTEL_SERVICE_NAME
               valueFrom:
@@ -917,8 +1020,8 @@ spec:
               value: otel
             - name: FLAGD_OTEL_COLLECTOR_URI
               value: $(OTEL_COLLECTOR_NAME):4317
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
+            - name: GOMEMLIMIT
+              value: 60MiB
           resources:
             limits:
               memory: 75Mi
@@ -926,7 +1029,7 @@ spec:
             - name: config-rw
               mountPath: /etc/flagd
         - name: flagd-ui
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-flagd-ui'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-flagd-ui'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -946,11 +1049,15 @@ spec:
               value: otel
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://$(OTEL_COLLECTOR_NAME):4318
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
+            - name: FLAGD_UI_PORT
+              value: "4000"
+            - name: SECRET_KEY_BASE
+              value: yYrECL4qbNwleYInGJYvVnSkwJuSQJ4ijPTx5tirGUXrbznFIBFVJdPl5t6O9ASw
+            - name: PHX_HOST
+              value: localhost
           resources:
             limits:
-              memory: 75Mi
+              memory: 250Mi
           volumeMounts:
             - mountPath: /app/data
               name: config-rw
@@ -979,13 +1086,13 @@ kind: Deployment
 metadata:
   name: fraud-detection
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: fraud-detection
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: fraud-detection
     app.kubernetes.io/name: fraud-detection
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -1000,14 +1107,17 @@ spec:
       labels:
         
         opentelemetry.io/name: fraud-detection
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: fraud-detection
         app.kubernetes.io/name: fraud-detection
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: fraud-detection
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-fraud-detection'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-fraud-detection'
           imagePullPolicy: IfNotPresent
           env:
             - name: OTEL_SERVICE_NAME
@@ -1027,8 +1137,10 @@ spec:
               value: "8013"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://$(OTEL_COLLECTOR_NAME):4318
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
+            - name: OTEL_INSTRUMENTATION_KAFKA_EXPERIMENTAL_SPAN_ATTRIBUTES
+              value: "true"
+            - name: OTEL_INSTRUMENTATION_MESSAGING_EXPERIMENTAL_RECEIVE_TELEMETRY_ENABLED
+              value: "true"
           resources:
             limits:
               memory: 300Mi
@@ -1048,13 +1160,13 @@ kind: Deployment
 metadata:
   name: frontend
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: frontend
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: frontend
     app.kubernetes.io/name: frontend
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -1069,14 +1181,17 @@ spec:
       labels:
         
         opentelemetry.io/name: frontend
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: frontend
         app.kubernetes.io/name: frontend
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: frontend
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-frontend'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-frontend'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1094,6 +1209,8 @@ spec:
               value: cumulative
             - name: FRONTEND_PORT
               value: "8080"
+            - name: PORT
+              value: $(FRONTEND_PORT)
             - name: FRONTEND_ADDR
               value: :8080
             - name: AD_ADDR
@@ -1106,14 +1223,18 @@ spec:
               value: currency:8080
             - name: PRODUCT_CATALOG_ADDR
               value: product-catalog:8080
+            - name: PRODUCT_REVIEWS_ADDR
+              value: product-reviews:3551
             - name: RECOMMENDATION_ADDR
               value: recommendation:8080
             - name: SHIPPING_ADDR
-              value: shipping:8080
+              value: http://shipping:8080
             - name: FLAGD_HOST
               value: flagd
             - name: FLAGD_PORT
               value: "8013"
+            - name: ENV_PLATFORM
+              value: kubernetes
             - name: OTEL_COLLECTOR_HOST
               value: $(OTEL_COLLECTOR_NAME)
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
@@ -1122,8 +1243,6 @@ spec:
               value: frontend-web
             - name: PUBLIC_OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
               value: https://otel-demo-collector.example.com/v1/traces
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
           resources:
             limits:
               memory: 250Mi
@@ -1140,13 +1259,13 @@ kind: Deployment
 metadata:
   name: frontend-proxy
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: frontend-proxy
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: frontend-proxy
     app.kubernetes.io/name: frontend-proxy
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -1161,14 +1280,22 @@ spec:
       labels:
         
         opentelemetry.io/name: frontend-proxy
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: frontend-proxy
         app.kubernetes.io/name: frontend-proxy
+      annotations:
+        io.opentelemetry.discovery.metrics/config: |
+          targets:
+            - endpoint: "http://`endpoint`"
+        io.opentelemetry.discovery.metrics/enabled: "true"
+        io.opentelemetry.discovery.metrics/scraper: httpcheck
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: frontend-proxy
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-frontend-proxy'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-frontend-proxy'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1186,6 +1313,10 @@ spec:
               value: cumulative
             - name: ENVOY_PORT
               value: "8080"
+            - name: ENVOY_ADDR
+              value: 0.0.0.0
+            - name: ENVOY_ADMIN_PORT
+              value: "10000"
             - name: FLAGD_HOST
               value: flagd
             - name: FLAGD_PORT
@@ -1207,8 +1338,8 @@ spec:
             - name: IMAGE_PROVIDER_PORT
               value: "8081"
             - name: JAEGER_HOST
-              value: jaeger-query
-            - name: JAEGER_PORT
+              value: jaeger
+            - name: JAEGER_UI_PORT
               value: "16686"
             - name: LOCUST_WEB_HOST
               value: load-generator
@@ -1220,8 +1351,6 @@ spec:
               value: "4317"
             - name: OTEL_COLLECTOR_PORT_HTTP
               value: "4318"
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
           resources:
             limits:
               memory: 65Mi
@@ -1238,13 +1367,13 @@ kind: Deployment
 metadata:
   name: image-provider
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: image-provider
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: image-provider
     app.kubernetes.io/name: image-provider
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -1259,14 +1388,23 @@ spec:
       labels:
         
         opentelemetry.io/name: image-provider
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: image-provider
         app.kubernetes.io/name: image-provider
+      annotations:
+        io.opentelemetry.discovery.metrics/config: |
+          endpoint: "http://`endpoint`/status"
+          collection_interval: "10s"
+          timeout: "20s"
+        io.opentelemetry.discovery.metrics/enabled: "true"
+        io.opentelemetry.discovery.metrics/scraper: nginx
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: image-provider
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-image-provider'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-image-provider'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1288,8 +1426,6 @@ spec:
               value: "4317"
             - name: OTEL_COLLECTOR_HOST
               value: $(OTEL_COLLECTOR_NAME)
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
           resources:
             limits:
               memory: 50Mi
@@ -1302,13 +1438,13 @@ kind: Deployment
 metadata:
   name: kafka
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: kafka
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: kafka
     app.kubernetes.io/name: kafka
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -1323,14 +1459,17 @@ spec:
       labels:
         
         opentelemetry.io/name: kafka
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: kafka
         app.kubernetes.io/name: kafka
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: kafka
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-kafka'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-kafka'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1354,8 +1493,12 @@ spec:
               value: http://$(OTEL_COLLECTOR_NAME):4318
             - name: KAFKA_HEAP_OPTS
               value: -Xmx400M -Xms400M
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
+            - name: KAFKA_LISTENERS
+              value: PLAINTEXT://:9092,CONTROLLER://:9093
+            - name: KAFKA_CONTROLLER_LISTENER_NAMES
+              value: CONTROLLER
+            - name: KAFKA_CONTROLLER_QUORUM_VOTERS
+              value: 1@kafka:9093
           resources:
             limits:
               memory: 600Mi
@@ -1370,15 +1513,77 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: llm
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.40.2
+    
+    opentelemetry.io/name: llm
+    
+    app.kubernetes.io/version: "2.2.0"
+    app.kubernetes.io/component: llm
+    app.kubernetes.io/name: llm
+    app.kubernetes.io/part-of: opentelemetry-demo
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      
+      opentelemetry.io/name: llm
+  template:
+    metadata:
+      labels:
+        
+        opentelemetry.io/name: llm
+        
+        app.kubernetes.io/version: "2.2.0"
+        app.kubernetes.io/component: llm
+        app.kubernetes.io/name: llm
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
+    spec:
+      serviceAccountName: example
+      containers:
+        - name: llm
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-llm'
+          imagePullPolicy: IfNotPresent
+          ports:
+            
+            - containerPort: 8000
+              name: service
+          env:
+            - name: OTEL_SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.labels['app.kubernetes.io/component']
+            - name: OTEL_COLLECTOR_NAME
+              value: otel-collector
+            - name: OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE
+              value: cumulative
+            - name: FLAGD_HOST
+              value: flagd
+            - name: FLAGD_PORT
+              value: "8013"
+          resources:
+            null
+          volumeMounts:
+      volumes:
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: load-generator
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: load-generator
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: load-generator
     app.kubernetes.io/name: load-generator
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -1393,14 +1598,17 @@ spec:
       labels:
         
         opentelemetry.io/name: load-generator
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: load-generator
         app.kubernetes.io/name: load-generator
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: load-generator
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-load-generator'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-load-generator'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1438,10 +1646,10 @@ spec:
               value: flagd
             - name: FLAGD_PORT
               value: "8013"
+            - name: FLAGD_OFREP_PORT
+              value: "8016"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://$(OTEL_COLLECTOR_NAME):4317
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
           resources:
             limits:
               memory: 1500Mi
@@ -1454,13 +1662,13 @@ kind: Deployment
 metadata:
   name: payment
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: payment
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: payment
     app.kubernetes.io/name: payment
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -1475,14 +1683,17 @@ spec:
       labels:
         
         opentelemetry.io/name: payment
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: payment
         app.kubernetes.io/name: payment
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: payment
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-payment'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-payment'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1506,11 +1717,11 @@ spec:
               value: "8013"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://$(OTEL_COLLECTOR_NAME):4317
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
+            - name: IPV6_ENABLED
+              value: "false"
           resources:
             limits:
-              memory: 120Mi
+              memory: 140Mi
           securityContext:
             runAsGroup: 1000
             runAsNonRoot: true
@@ -1522,15 +1733,100 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: postgresql
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.40.2
+    
+    opentelemetry.io/name: postgresql
+    
+    app.kubernetes.io/version: "2.2.0"
+    app.kubernetes.io/component: postgresql
+    app.kubernetes.io/name: postgresql
+    app.kubernetes.io/part-of: opentelemetry-demo
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      
+      opentelemetry.io/name: postgresql
+  template:
+    metadata:
+      labels:
+        
+        opentelemetry.io/name: postgresql
+        
+        app.kubernetes.io/version: "2.2.0"
+        app.kubernetes.io/component: postgresql
+        app.kubernetes.io/name: postgresql
+      annotations:
+        io.opentelemetry.discovery.metrics/config: |
+          username: root
+          password: otel
+          metrics:
+            postgresql.blks_hit:
+              enabled: true
+            postgresql.blks_read:
+              enabled: true
+            postgresql.tup_fetched:
+              enabled: true
+            postgresql.tup_returned:
+              enabled: true
+            postgresql.tup_inserted:
+              enabled: true
+            postgresql.tup_updated:
+              enabled: true
+            postgresql.tup_deleted:
+              enabled: true
+            postgresql.deadlocks:
+              enabled: true
+          tls:
+            insecure: true
+        io.opentelemetry.discovery.metrics/enabled: "true"
+        io.opentelemetry.discovery.metrics/scraper: postgresql
+        resource.opentelemetry.io/service.namespace: otel-demo
+    spec:
+      serviceAccountName: example
+      containers:
+        - name: postgresql
+          image: 'postgres:17.6'
+          imagePullPolicy: IfNotPresent
+          ports:
+            
+            - containerPort: 5432
+              name: service
+          env:
+            - name: POSTGRES_USER
+              value: root
+            - name: POSTGRES_PASSWORD
+              value: otel
+            - name: POSTGRES_DB
+              value: otel
+          resources:
+            limits:
+              memory: 100Mi
+          volumeMounts:
+            - name: postgresql-init
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: postgresql-init
+          configMap:
+            name: postgresql-init
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: product-catalog
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: product-catalog
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: product-catalog
     app.kubernetes.io/name: product-catalog
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -1545,14 +1841,17 @@ spec:
       labels:
         
         opentelemetry.io/name: product-catalog
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: product-catalog
         app.kubernetes.io/name: product-catalog
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: product-catalog
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-product-catalog'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-product-catalog'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1570,26 +1869,110 @@ spec:
               value: cumulative
             - name: PRODUCT_CATALOG_PORT
               value: "8080"
-            - name: PRODUCT_CATALOG_RELOAD_INTERVAL
-              value: "10"
             - name: FLAGD_HOST
               value: flagd
             - name: FLAGD_PORT
               value: "8013"
+            - name: GOMEMLIMIT
+              value: 16MiB
+            - name: DB_CONNECTION_STRING
+              value: postgres://otelu:otelp@postgresql/otel?sslmode=disable
+            - name: OTEL_SEMCONV_STABILITY_OPT_IN
+              value: database
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://$(OTEL_COLLECTOR_NAME):4317
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
           resources:
             limits:
               memory: 20Mi
           volumeMounts:
-            - name: product-catalog-products
-              mountPath: /usr/src/app/products
       volumes:
-        - name: product-catalog-products
-          configMap:
-            name: product-catalog-products
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product-reviews
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.40.2
+    
+    opentelemetry.io/name: product-reviews
+    
+    app.kubernetes.io/version: "2.2.0"
+    app.kubernetes.io/component: product-reviews
+    app.kubernetes.io/name: product-reviews
+    app.kubernetes.io/part-of: opentelemetry-demo
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      
+      opentelemetry.io/name: product-reviews
+  template:
+    metadata:
+      labels:
+        
+        opentelemetry.io/name: product-reviews
+        
+        app.kubernetes.io/version: "2.2.0"
+        app.kubernetes.io/component: product-reviews
+        app.kubernetes.io/name: product-reviews
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
+    spec:
+      serviceAccountName: example
+      containers:
+        - name: product-reviews
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-product-reviews'
+          imagePullPolicy: IfNotPresent
+          ports:
+            
+            - containerPort: 3551
+              name: service
+          env:
+            - name: OTEL_SERVICE_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.labels['app.kubernetes.io/component']
+            - name: OTEL_COLLECTOR_NAME
+              value: otel-collector
+            - name: OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE
+              value: cumulative
+            - name: OPENAI_API_KEY
+              value: dummy
+            - name: LLM_MODEL
+              value: astronomy-llm
+            - name: LLM_HOST
+              value: llm
+            - name: LLM_PORT
+              value: "8000"
+            - name: LLM_BASE_URL
+              value: http://$(LLM_HOST):$(LLM_PORT)/v1
+            - name: PRODUCT_REVIEWS_PORT
+              value: "3551"
+            - name: PRODUCT_CATALOG_ADDR
+              value: product-catalog:8080
+            - name: FLAGD_HOST
+              value: flagd
+            - name: FLAGD_PORT
+              value: "8013"
+            - name: DB_CONNECTION_STRING
+              value: host=postgresql user=otelu password=otelp dbname=otel
+            - name: PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION
+              value: python
+            - name: OTEL_PYTHON_LOG_CORRELATION
+              value: "true"
+            - name: OTEL_INSTRUMENTATION_GENAI_CAPTURE_MESSAGE_CONTENT
+              value: "true"
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: http://$(OTEL_COLLECTOR_NAME):4317
+          resources:
+            limits:
+              memory: 100Mi
+          volumeMounts:
+      volumes:
 ---
 # Source: opentelemetry-demo/templates/component.yaml
 apiVersion: apps/v1
@@ -1597,13 +1980,13 @@ kind: Deployment
 metadata:
   name: quote
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: quote
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: quote
     app.kubernetes.io/name: quote
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -1618,14 +2001,17 @@ spec:
       labels:
         
         opentelemetry.io/name: quote
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: quote
         app.kubernetes.io/name: quote
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: quote
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-quote'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-quote'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1645,10 +2031,12 @@ spec:
               value: "8080"
             - name: OTEL_PHP_AUTOLOAD_ENABLED
               value: "true"
+            - name: OTEL_PHP_INTERNAL_METRICS_ENABLED
+              value: "true"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://$(OTEL_COLLECTOR_NAME):4318
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
+            - name: IPV6_ENABLED
+              value: "false"
           resources:
             limits:
               memory: 40Mi
@@ -1665,13 +2053,13 @@ kind: Deployment
 metadata:
   name: recommendation
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: recommendation
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: recommendation
     app.kubernetes.io/name: recommendation
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -1686,14 +2074,17 @@ spec:
       labels:
         
         opentelemetry.io/name: recommendation
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: recommendation
         app.kubernetes.io/name: recommendation
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: recommendation
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-recommendation'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-recommendation'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1723,8 +2114,6 @@ spec:
               value: "8013"
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://$(OTEL_COLLECTOR_NAME):4317
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
           resources:
             limits:
               memory: 500Mi
@@ -1737,13 +2126,13 @@ kind: Deployment
 metadata:
   name: shipping
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: shipping
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: shipping
     app.kubernetes.io/name: shipping
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -1758,14 +2147,17 @@ spec:
       labels:
         
         opentelemetry.io/name: shipping
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: shipping
         app.kubernetes.io/name: shipping
+      annotations:
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: shipping
-          image: 'ghcr.io/open-telemetry/demo:2.0.1-shipping'
+          image: 'ghcr.io/open-telemetry/demo:2.2.0-shipping'
           imagePullPolicy: IfNotPresent
           ports:
             
@@ -1787,8 +2179,8 @@ spec:
               value: http://quote:8080
             - name: OTEL_EXPORTER_OTLP_ENDPOINT
               value: http://$(OTEL_COLLECTOR_NAME):4317
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
+            - name: IPV6_ENABLED
+              value: "false"
           resources:
             limits:
               memory: 20Mi
@@ -1801,13 +2193,13 @@ kind: Deployment
 metadata:
   name: valkey-cart
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: valkey-cart
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: valkey-cart
     app.kubernetes.io/name: valkey-cart
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:
@@ -1822,31 +2214,29 @@ spec:
       labels:
         
         opentelemetry.io/name: valkey-cart
-        app.kubernetes.io/instance: example
+        
+        app.kubernetes.io/version: "2.2.0"
         app.kubernetes.io/component: valkey-cart
         app.kubernetes.io/name: valkey-cart
+      annotations:
+        io.opentelemetry.discovery.metrics/config: |
+          username: valkey
+          collection_interval: 10s
+        io.opentelemetry.discovery.metrics/enabled: "true"
+        io.opentelemetry.discovery.metrics/scraper: redis
+        resource.opentelemetry.io/service.namespace: otel-demo
     spec:
       serviceAccountName: example
       containers:
         - name: valkey-cart
-          image: 'valkey/valkey:7.2-alpine'
+          image: 'valkey/valkey:9.0.1-alpine3.23'
           imagePullPolicy: IfNotPresent
           ports:
             
             - containerPort: 6379
               name: valkey-cart
           env:
-            - name: OTEL_SERVICE_NAME
-              valueFrom:
-                fieldRef:
-                  apiVersion: v1
-                  fieldPath: metadata.labels['app.kubernetes.io/component']
-            - name: OTEL_COLLECTOR_NAME
-              value: otel-collector
-            - name: OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE
-              value: cumulative
-            - name: OTEL_RESOURCE_ATTRIBUTES
-              value: service.name=$(OTEL_SERVICE_NAME),service.namespace=opentelemetry-demo,service.version=2.0.1
+            []
           resources:
             limits:
               memory: 20Mi
@@ -1863,13 +2253,13 @@ kind: Ingress
 metadata:
   name: frontend-proxy
   labels:
-    helm.sh/chart: opentelemetry-demo-0.36.1
+    helm.sh/chart: opentelemetry-demo-0.40.2
     
     opentelemetry.io/name: frontend-proxy
-    app.kubernetes.io/instance: example
+    
+    app.kubernetes.io/version: "2.2.0"
     app.kubernetes.io/component: frontend-proxy
     app.kubernetes.io/name: frontend-proxy
-    app.kubernetes.io/version: "2.0.1"
     app.kubernetes.io/part-of: opentelemetry-demo
     app.kubernetes.io/managed-by: Helm
 spec:

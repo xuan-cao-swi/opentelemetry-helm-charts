@@ -1,7 +1,9 @@
 {{ range $_, $collector := $.Values.collectors -}}
 {{- if $collector.enabled -}}
-{{- $collector := (mergeOverwrite (deepCopy $.Values.defaultCRConfig) $collector) }}
-{{- $merged := (dict "Template" $.Template "Files" $.Files "Chart" $.Chart "clusterRole" $.Values.clusterRole "collector" $collector "Release" $.Release "fullnameOverride" $.Values.fullnameOverride "presets" $.Values.presets "namespace" (include "opentelemetry-kube-stack.namespace" $)  "kubelet" $.Values.kubelet) }}
+{{- if $.Values.defaultCRConfig.enabled }}
+{{- $collector = (mergeOverwrite (deepCopy $.Values.defaultCRConfig) $collector) }}
+{{- end }}
+{{- $merged := (dict "Template" $.Template "Files" $.Files "Chart" $.Chart "clusterRole" $.Values.clusterRole "collector" $collector "Release" $.Release "fullnameOverride" $.Values.fullnameOverride "presets" $.Values.presets "namespace" (include "opentelemetry-kube-stack.namespace" $)  "kubelet" $.Values.kubelet "clusterName" $.Values.clusterName) }}
 {{- $fullname := (include "opentelemetry-kube-stack.collectorFullname" $merged) }}
 ---
 apiVersion: opentelemetry.io/v1beta1
@@ -22,7 +24,7 @@ spec:
   mode: {{ $collector.mode }}
   config:
     {{- include "opentelemetry-kube-stack.config" $merged }}
-  {{- if (not (eq $collector.mode "daemonset" )) }}
+  {{- if and (not (eq $collector.mode "daemonset" )) (not $collector.autoscaler) }}
   replicas: {{ $collector.replicas }}
   {{- end }}
   {{- if $collector.serviceAccount }}
@@ -90,7 +92,7 @@ spec:
   {{- end }}
   {{- with $collector.affinity }}
   affinity:
-  {{- toYaml . | nindent 4}}
+  {{- tpl (toYaml .) $merged | nindent 4}}
   {{- end }}
   {{- with $collector.lifecycle }}
   lifecycle:
@@ -108,10 +110,25 @@ spec:
   updateStrategy:
   {{- toYaml . | nindent 4}}
   {{- end }}
+  {{- if eq $collector.mode "daemonset" }}
+  {{- with $collector.daemonSetUpdateStrategy }}
+  daemonSetUpdateStrategy:
+  {{- toYaml . | nindent 4}}
+  {{- end }}
+  {{- end }}
+  {{- if eq $collector.mode "deployment" }}
   {{- with $collector.deploymentUpdateStrategy }}
   deploymentUpdateStrategy:
   {{- toYaml . | nindent 4}}
   {{- end }}
+  {{- end }}
+   {{- if eq $collector.mode "statefulset" }}
+  {{- with $collector.persistentVolumeClaimRetentionPolicy }}
+  persistentVolumeClaimRetentionPolicy:
+  {{- toYaml . | nindent 4}}
+  {{- end }}
+  {{- end }}
+  {{- if or ($collector.presets.logsCollection.enabled) ($collector.presets.logsCollection.storeCheckpoints) ($collector.presets.hostMetrics.enabled) ($collector.volumeMounts) }}
   volumeMounts:
   {{- if $collector.presets.logsCollection.enabled }}
   - name: varlogpods
@@ -120,10 +137,10 @@ spec:
   - name: varlibdockercontainers
     mountPath: /var/lib/docker/containers
     readOnly: true
+  {{- end }}
   {{- if $collector.presets.logsCollection.storeCheckpoints}}
   - name: varlibotelcol
     mountPath: /var/lib/otelcol
-  {{- end }}
   {{- end }}
   {{- if $collector.presets.hostMetrics.enabled }}
   - name: hostfs
@@ -132,13 +149,18 @@ spec:
     mountPropagation: HostToContainer
   {{- end }}
   {{- with $collector.volumeMounts }}
-  {{- toYaml . | nindent 2 }}
+  {{- tpl (toYaml .) $merged | nindent 2 }}
+  {{- end }}
   {{- end }}
   {{- with $collector.ports }}
   ports:
   {{- toYaml . | nindent 4 }}
   {{- end }}
   env:
+  - name: K8S_NODE_NAME
+    valueFrom:
+      fieldRef:
+        fieldPath: spec.nodeName
   - name: OTEL_K8S_NODE_NAME
     valueFrom:
       fieldRef:
@@ -179,12 +201,13 @@ spec:
   tolerations:
   {{- toYaml . | nindent 4 }}
   {{- end }}
+  {{- if or ($collector.presets.logsCollection.enabled) ($collector.presets.logsCollection.storeCheckpoints) ($collector.presets.hostMetrics.enabled) ($collector.volumes) }}
   volumes:
   {{- if $collector.presets.logsCollection.enabled }}
   - name: varlogpods
     hostPath:
       path: /var/log/pods
-  {{- if $collector.presets.logsCollection.storeCheckpoints}}
+  {{- if $collector.presets.logsCollection.storeCheckpoints }}
   - name: varlibotelcol
     hostPath:
       path: /var/lib/otelcol
@@ -200,7 +223,8 @@ spec:
       path: /
   {{- end }}
   {{- with $collector.volumes }}
-  {{- toYaml . | nindent 2 }}
+  {{- tpl (toYaml .) $merged | nindent 2 }}
+  {{- end }}
   {{- end }}
   {{- with $collector.initContainers }}
   initContainers:

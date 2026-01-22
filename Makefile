@@ -1,5 +1,5 @@
 TMP_DIRECTORY = ./tmp
-CHARTS ?= opentelemetry-collector opentelemetry-operator opentelemetry-demo opentelemetry-ebpf opentelemetry-kube-stack
+CHARTS ?= opentelemetry-collector opentelemetry-operator opentelemetry-demo opentelemetry-ebpf opentelemetry-kube-stack opentelemetry-target-allocator opentelemetry-ebpf-instrumentation
 OPERATOR_APP_VERSION ?= "$(shell cat ./charts/opentelemetry-operator/Chart.yaml | sed -nr 's/appVersion: ([0-9]+\.[0-9]+\.[0-9]+)/\1/p')"
 
 .PHONY: generate-examples
@@ -46,10 +46,10 @@ check-examples:
 					mv ${TMP_DIRECTORY}/$${example}/$${chart_name}/charts/$${subchart}/templates/* "${TMP_DIRECTORY}/$${example}/$${chart_name}/templates/$${subchart}"; \
 				done; \
 			done; \
-			if diff -r "$${EXAMPLES_DIR}/$${example}/rendered" "${TMP_DIRECTORY}/$${example}/$${chart_name}/templates" > /dev/null; then \
+			if diff -r -I 'checksum/config' -I 'helm\.sh/chart' "$${EXAMPLES_DIR}/$${example}/rendered" "${TMP_DIRECTORY}/$${example}/$${chart_name}/templates" > /dev/null; then \
 				echo "Passed $${example}"; \
 			else \
-				diff -r "$${EXAMPLES_DIR}/$${example}/rendered" "${TMP_DIRECTORY}/$${example}/$${chart_name}/templates"; \
+				diff -r -I 'checksum/config' -I 'helm\.sh/chart' "$${EXAMPLES_DIR}/$${example}/rendered" "${TMP_DIRECTORY}/$${example}/$${chart_name}/templates"; \
 				echo "Failed $${example}. run 'make generate-examples' to re-render the example with the latest $${example}/values.yaml"; \
 				rm -rf ${TMP_DIRECTORY}; \
 				exit 1; \
@@ -86,7 +86,7 @@ define get-crd
 @curl -s -o $(1) $(2)
 @sed -i '\#path: /convert#a {{ if .caBundle }}{{ cat "caBundle:" .caBundle | indent 8 }}{{ end }}' $(1)
 @sed -i 's#opentelemetry-operator-system/opentelemetry-operator-serving-cert#{{ include "opentelemetry-operator.webhookCertAnnotation" . }}#g' $(1)
-@sed -i "s/opentelemetry-operator-system/{{ .Release.Namespace }}/g" $(1)
+@sed -i 's/opentelemetry-operator-system/{{ template "opentelemetry-operator.namespace" . }}/g' $(1)
 @sed -i 's/opentelemetry-operator-webhook-service/{{ template "opentelemetry-operator.fullname" . }}-webhook/g' $(1)
 @sed -i '1s/^/{{- if .Values.crds.create }}\n/' $(1)
 @sed -i 's#\(.*\)path: /convert#&\n\1port: {{ .Values.admissionWebhooks.servicePort }}#' $(1)
